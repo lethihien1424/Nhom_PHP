@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>footer</title>
+    <style>
+        * Footer chung */ footer {
+            text-align: center;
+            padding: 20px;
+            background-color: #d3dbe0;
+            /* Màu nền tối hơn để tạo sự sang trọng */
+            color: white;
+            font-weight: bold;
+            font-size: 16px;
+            margin-top: 20px;
+        }
+
+
+        /* Main footer */
+
+        .main-footer {
+            background: #bfe2e8;
+            /* Màu nền sáng, có thể điều chỉnh để tối ưu */
+            color: rgb(30, 27, 27);
+            padding: 40px 0;
+            /* Tăng padding để các phần tử trong footer có không gian */
+            font-size: 14px;
+            width: 100%;
+            flex-shrink: 0;
+            text-align: left;
+        }
+
+
+        /* Chứa các cột footer */
+
+        .footer-container {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+
+
+        /* Các cột trong footer */
+
+        .footer-column {
+            flex: 1;
+            min-width: 220px;
+            margin-bottom: 20px;
+            padding: 0 20px;
+            /* Thêm khoảng cách xung quanh các cột */
+        }
+
+
+        /* Tiêu đề cột */
+
+        .footer-column h3 {
+            font-size: 16px;
+            border-bottom: 2px solid #81dbef;
+            padding-bottom: 8px;
+            margin-bottom: 12px;
+            color: #333;
+            /* Màu tối hơn để tiêu đề dễ đọc hơn */
+        }
+
+
+        /* Danh sách trong các cột */
+
+        .footer-column ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .footer-column ul li {
+            margin: 8px 0;
+        }
+
+
+        /* Liên kết trong footer */
+
+        .footer-column ul li a {
+            color: #181515;
+            text-decoration: none;
+            font-size: 14px;
+        }
+
+        .footer-column ul li a:hover {
+            color: #4da6ff;
+            text-decoration: underline;
+            /* Thêm underline khi hover */
+        }
+
+
+        /* Thêm style cho các liên kết trong footer */
+
+        .footer-column ul li a:focus {
+            outline: none;
+            /* Loại bỏ outline mặc định khi focus */
+            border-bottom: 2px solid #4da6ff;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="footer-container">
+        <!-- Tổng đài hỗ trợ -->
+        <div class="footer-column">
+            <h3>Tổng đài hỗ trợ</h3>
+            <div class="footer-contact">
+                <p>Gọi mua: <a href="tel:1900232460">1900 232 460</a><br>(8:00 - 21:30)</p>
+                <p>Khiếu nại: <a href="tel:18001062">1800.1062</a><br>(8:00 - 21:30)</p>
+                <p>Bảo hành: <a href="tel:1900232464">1900 232 464</a><br>(8:00 - 21:00)</p>
+            </div>
+        </div>
+
+        <!-- Về công ty -->
+        <div class="footer-column">
+            <h3>Về công ty</h3>
+            <ul>
+                <li><a href="gtct.php">Giới thiệu công ty</a></li>
+
+                <li><a href="#">Tuyển dụng</a></li>
+                <li><a href="#">Gửi góp ý, khiếu nại</a></li>
+            </ul>
+        </div>
+
+        <!-- Thông tin khác -->
+        <div class="footer-column">
+            <h3>Thông tin khác</h3>
+            <ul>
+                <li><a href="#">Tích điểm Quà tặng VIP</a></li>
+                <li><a href="#">Lịch sử mua hàng</a></li>
+                <li><a href="#">Đăng ký bán hàng CTV</a></li>
+            </ul>
+        </div>
+
+        <!-- Website cùng tập đoàn -->
+        <div class="footer-column">
+            <h3>Website cùng tập đoàn</h3>
+            <ul>
+                <li><a href="http://tcpx.it">tcpx.it</a></li>
+                <li><a href="http://tcpvirtual.com">tcpvirtual.com</a></li>
+                <li><a href="http://kishido.vn">kishido.vn</a></li>
+            </ul>
+        </div>
+    </div>
+</body>
+
+</html>

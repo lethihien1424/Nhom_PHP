@@ -1,0 +1,121 @@
+/* Footer chung */
+
+footer {
+    text-align: center;
+    padding: 20px;
+    color: black;
+    background: #e1e6eb;
+    /* Màu nền tối hơn */
+    font-size: 16px;
+    font-weight: bold;
+}
+
+
+/* Footer chính */
+
+.main-footer {
+    background: #eff3f7;
+    /* Màu nền hiện đại */
+    color: black;
+    padding: 20px 0;
+    font-size: 14px;
+    width: 100%;
+    flex-shrink: 0;
+}
+
+
+/* Container linh hoạt */
+
+.footer-container {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+
+/* Cột trong footer */
+
+.footer-column {
+    flex: 1;
+    min-width: 220px;
+    margin-bottom: 15px;
+    padding: 0 15px;
+}
+
+
+/* Tiêu đề từng cột */
+
+.footer-column h3 {
+    font-size: 16px;
+    color: rgb(63, 61, 61);
+    /* Màu vàng nổi bật */
+    border-bottom: 2px solid #8c8a8a;
+    padding-bottom: 8px;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+}
+
+
+/* Danh sách liên kết */
+
+.footer-column ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-column ul li {
+    margin: 8px 0;
+}
+
+
+/* Liên kết */
+
+.footer-column ul li a {
+    color: black;
+    text-decoration: none;
+    transition: color 0.3s ease-in-out;
+}
+
+.footer-column ul li a:hover {
+    color: #007bff;
+}
+
+
+/* Số điện thoại */
+
+.footer-contact p {
+    margin: 5px 0;
+}
+
+.footer-contact a {
+    color: #f39c12;
+    font-weight: bold;
+    text-decoration: none;
+    transition: color 0.3s ease-in-out;
+}
+
+.footer-contact a:hover {
+    color: #f1c40f;
+}
+
+
+/* Responsive cho màn hình nhỏ */
+
+@media (max-width: 768px) {
+    .footer-container {
+        flex-direction: column;
+        text-align: center;
+    }
+}
+
+.footer-column img {
+    width: 24px;
+    /* Chiều rộng 24px */
+    height: 24px;
+    /* Chiều cao 24px */
+    margin-right: 5px;
+    /* Khoảng cách giữa icon và chữ */
+}
