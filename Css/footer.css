@@ -1,21 +1,32 @@
-/* Footer chung */
+/* Đảm bảo footer ở đáy khi nội dung không đủ dài */
+/* Đảm bảo footer ở đáy khi nội dung không đủ dài */
+html, body {
+    height: 100%;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+}
 
+.content {
+    flex: 1; /* Đẩy footer xuống cuối khi nội dung ngắn */
+}
+
+/* Footer */
 footer {
+    position: relative; /* Không cố định footer */
+    width: 100%;
     text-align: center;
     padding: 20px;
     color: black;
     background: #e1e6eb;
-    /* Màu nền tối hơn */
     font-size: 16px;
     font-weight: bold;
+    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1); /* Hiệu ứng bóng */
 }
 
-
 /* Footer chính */
-
 .main-footer {
     background: #eff3f7;
-    /* Màu nền hiện đại */
     color: black;
     padding: 20px 0;
     font-size: 14px;
@@ -23,9 +34,7 @@ footer {
     flex-shrink: 0;
 }
 
-
 /* Container linh hoạt */
-
 .footer-container {
     display: flex;
     justify-content: space-between;
@@ -33,11 +42,10 @@ footer {
     max-width: 1200px;
     margin: 0 auto;
     padding: 0 20px;
+    gap: 20px; /* Thêm khoảng cách giữa các cột */
 }
 
-
 /* Cột trong footer */
-
 .footer-column {
     flex: 1;
     min-width: 220px;
@@ -45,22 +53,17 @@ footer {
     padding: 0 15px;
 }
 
-
 /* Tiêu đề từng cột */
-
 .footer-column h3 {
     font-size: 16px;
     color: rgb(63, 61, 61);
-    /* Màu vàng nổi bật */
     border-bottom: 2px solid #8c8a8a;
     padding-bottom: 8px;
     margin-bottom: 10px;
     text-transform: uppercase;
 }
 
-
 /* Danh sách liên kết */
-
 .footer-column ul {
     list-style: none;
     padding: 0;
@@ -70,9 +73,7 @@ footer {
     margin: 8px 0;
 }
 
-
 /* Liên kết */
-
 .footer-column ul li a {
     color: black;
     text-decoration: none;
@@ -83,9 +84,7 @@ footer {
     color: #007bff;
 }
 
-
 /* Số điện thoại */
-
 .footer-contact p {
     margin: 5px 0;
 }
@@ -101,21 +100,17 @@ footer {
     color: #f1c40f;
 }
 
-
 /* Responsive cho màn hình nhỏ */
-
 @media (max-width: 768px) {
     .footer-container {
         flex-direction: column;
         text-align: center;
+        gap: 15px; /* Thêm khoảng cách giữa các cột */
     }
 }
 
 .footer-column img {
     width: 24px;
-    /* Chiều rộng 24px */
     height: 24px;
-    /* Chiều cao 24px */
     margin-right: 5px;
-    /* Khoảng cách giữa icon và chữ */
 }

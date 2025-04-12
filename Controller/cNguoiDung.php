@@ -1,47 +1,36 @@
 <?php
-include_once("model/mNguoiDung.php");
+include("Model/mNguoiDung.php");
 
-class controlNguoiDung {
-    public function cDangNhap($tdn, $mk) {
+class controlNguoiDung
+{
+    public function cDangNhap($tdn, $mk)
+    {
         $p = new modelTaiKhoan();
-        $mk = md5($mk); // Mã hóa mật khẩu
         $tblTK = $p->mDangNhap($tdn, $mk);
 
         if (!$tblTK) {
-            echo "<script>alert('Lỗi kết nối! Vui lòng liên hệ admin.'); window.location.href='index.php?page=dangnhap';</script>";
-            exit();
-        } else if ($tblTK->num_rows > 0) {
-            session_start();
-            $_SESSION["dn"] = true;
-            $_SESSION["username"] = $tdn; // Lưu tên đăng nhập vào session
-            header('Location: View/admin.php');
-            exit();
+            return false; // Đăng nhập thất bại
         } else {
-            echo "<script>alert('Sai thông tin tài khoản!'); window.location.href='index.php?page=dangnhap';</script>";
-            exit();
+            return $tblTK; // Trả về thông tin người dùng
         }
     }
 
-    public function cDangKy($tdn, $pwd) {
+    public function cDangKy($tdn, $hashedPwd)
+    {
         $p = new modelTaiKhoan();
-        $pwd = md5($pwd); // Mã hóa mật khẩu
 
-        // Kiểm tra xem tài khoản đã tồn tại chưa
         $chk = $p->mCheckID($tdn);
         if ($chk->num_rows > 0) {
-            echo "<script>alert('Tài khoản đã tồn tại!'); window.location.href='index.php?page=dangky';</script>";
-            exit();
+            echo "<script>alert('Tài khoản đã tồn tại!');</script>";
+            return false;
         } else {
-            $result = $p->mDangKy($tdn, $pwd);
+            $result = $p->mDangKy($tdn, $hashedPwd); // Lưu mật khẩu đã băm vào cơ sở dữ liệu
             if ($result) {
-                echo "<script>alert('Đăng ký thành công!'); window.location.href='index.php?page=dangnhap';</script>";
-                exit();
-            } else {
-                echo "<script>alert('Đăng ký thất bại!'); window.location.href='index.php?page=dangky';</script>";
+                echo "<script>alert('Đăng ký thành công!');</script>";
+                header("Location: index.php?page=dangnhap"); // Chuyển hướng về trang đăng nhập
                 exit();
             }
+            return $result; // Trả về kết quả đăng ký
         }
     }
 }
-?>
-

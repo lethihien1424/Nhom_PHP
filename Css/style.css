@@ -8,20 +8,23 @@
 }
 
 body {
+    margin: 0;
+    padding: 0;
     background-color: #f4f4f4;
     color: #333;
+    overflow-x: hidden; /* Ngăn cuộn ngang */
+    overflow-y: auto; /* Cho phép cuộn dọc */
 }
-
 
 /* Container chính */
 
 .container {
-    max-width: 1200px;
-    margin: 20px auto;
+    width: 100vw; /* Chiều rộng toàn màn hình */
+    min-height: 100vh; /* Chiều cao tối thiểu là toàn màn hình */
     background: white;
-    border-radius: 10px;
-    overflow: hidden;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 0;
+    overflow: auto; /* Cho phép cuộn nếu nội dung vượt quá */
+    box-shadow: none;
 }
 
 
@@ -123,7 +126,7 @@ header {
 }
 
 .auth-group span {
-    color: #ddd;
+   /* color: #ddd; */
     font-size: 14px;
 }
 
@@ -282,17 +285,14 @@ section {
 
 
 /* Footer */
-
-footer {
-    text-align: center;
-    padding: 20px;
-    background-color: #d3dbe0;
-    /* Màu nền tối hơn để tạo sự sang trọng */
-    color: white;
-    font-weight: bold;
-    font-size: 16px;
-    margin-top: 20px;
+/* Đảm bảo footer ở đáy khi nội dung không đủ dài */
+html, body {
+    height: 100%;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
 }
+
 
 
 /* Responsive */

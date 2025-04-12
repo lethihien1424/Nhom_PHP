@@ -1,6 +1,10 @@
 <?php
-session_start();
+
+session_start(); // Bắt đầu session
+
 ?>
+
+
 <!DOCTYPE html>
 <html lang="vi">
 
@@ -16,7 +20,6 @@ session_start();
             margin-top: -60px;
             width: 100%;
             height: 400px;
-            /* Điều chỉnh chiều cao phù hợp */
             overflow: hidden;
         }
 
@@ -24,20 +27,32 @@ session_start();
             width: 100%;
             height: 100%;
             object-fit: cover;
-            /* Cắt video để khớp kích thước */
+        }
+
+        .username-highlight {
+            color: black;
+            font-weight: bold;
+            font-size: 16px;
         }
     </style>
 </head>
 
 <body>
     <div class="container">
+        <?php if (isset($_SESSION['dn']) && $_SESSION['dn'] === true): ?>
+            <p class="username-highlight">Xin chào, <?php echo htmlspecialchars($_SESSION['username']); ?>!</p>
+            <a href="dangxuat.php">Đăng xuất</a>
+        <?php else: ?>
+            <a href="View/dangnhap.php">Đăng nhập</a>
+        <?php endif; ?>
+
+        <!-- Video quảng cáo -->
         <header>
             <div class="quangcao">
                 <video id="quangcaoVideo" autoplay muted loop>
                     <source src="video/quangcao2.mp4" type="video/mp4">
                 </video>
             </div>
-
             <script>
                 const videos = ["video/quangcao2.mp4"];
                 let currentVideo = 0;
@@ -50,6 +65,8 @@ session_start();
                 });
             </script>
         </header>
+
+        <!-- Thanh công cụ -->
         <div class="toolbar">
             <div class="auth-group">
                 <?php include 'View/navngang.php'; ?>
@@ -70,10 +87,9 @@ session_start();
                     </a>
                 </div>
             </div>
-
         </div>
 
-
+        <!-- Nội dung chính -->
         <div class="content">
             <nav>
                 <ul>
@@ -84,12 +100,13 @@ session_start();
 
             <section>
                 <?php
+                // Các trang được phép truy cập
                 $allowedPages = ['dangky', 'dangnhap', 'dangxuat', 'listsanpham', 'searchResult', 'admin'];
                 $page = $_GET['page'] ?? 'listsanpham';
 
                 if ($page == "listsanpham" && isset($_GET['search'])) {
                     include "View/searchResult.php";
-                } else if (in_array($page, $allowedPages) && file_exists("View/$page.php")) {
+                } elseif (in_array($page, $allowedPages) && file_exists("View/$page.php")) {
                     include "View/$page.php";
                 } else {
                     echo "<h2>Trang không tồn tại!</h2>";
@@ -98,9 +115,7 @@ session_start();
             </section>
         </div>
 
-
-
-        <!-- Phiên bản danh sách (hiển thị trên mobile) -->
+        <!-- Footer -->
         <footer class="main-footer">
             <div class="footer-container">
                 <div class="footer-column">
@@ -131,7 +146,7 @@ session_start();
                 </div>
 
                 <div class="footer-column">
-                    <h3>Website liên hệ</h3> <!-- Đã sửa lại tiêu đề -->
+                    <h3>Website liên hệ</h3>
                     <ul>
                         <li>
                             <a href="#">
@@ -150,19 +165,9 @@ session_start();
                         </li>
                     </ul>
                 </div>
-
             </div>
         </footer>
-
     </div>
 </body>
 
 </html>
-<?php
-if (isset($_GET['logout'])) {
-    session_unset();
-    session_destroy();
-    header("Location: index.php");
-    exit();
-}
-?>
